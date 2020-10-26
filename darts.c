@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "darts.h"
 
-unsigned long long int throw_darts(int darts_per_drone, unsigned long long int* shm_p){/*{{{*/
+unsigned long long int throw_darts(int darts_per_drone){/*{{{*/
 	unsigned long long int hits = 0;
 	for(int i=0; i< darts_per_drone; i++){
 		hits+=throw_one_dart();
@@ -26,6 +26,5 @@ int throw_one_dart(){/*{{{*/
 	r_squared = x*x + y*y;
 	
 	ret = (r_squared <= 1.0);
-	printf("Strike value: %d\n", ret);
 	return ret;
 }/*}}}*/
