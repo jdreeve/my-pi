@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){/*{{{*/
 	validate_input(argc, argv);
 
 	int num_drones = atoi(argv[1]);
-	unsigned long long int total_darts = atoi(argv[2]);
+	unsigned long long int total_darts = strtoull(argv[2], NULL, 10);
 	int darts_per_drone = total_darts / num_drones;
 	unsigned long long int darts_in_circle = 0;
 	int shm_id;
@@ -91,7 +91,7 @@ void validate_input(int argc, char* argv[]){/*{{{*/
 	}
 	
 	int num_drones = atoi(argv[1]);
-	int total_darts = atoi(argv[2]);
+	unsigned long long int total_darts = strtoull(argv[2], NULL, 10);
 
 	if(0 == num_drones){
 		printf("No drones allocated.\n");
@@ -100,7 +100,7 @@ void validate_input(int argc, char* argv[]){/*{{{*/
 
 	int remainder = total_darts % num_drones;
 	if(remainder != 0){
-		printf("Warning: %d does not evenly divide %d! A remainder of %d darts will not be thrown.\n", num_drones, total_darts, remainder);
+		printf("Warning: %d does not evenly divide %lld! A remainder of %d darts will not be thrown.\n", num_drones, total_darts, remainder);
 	}
 
 	return;
