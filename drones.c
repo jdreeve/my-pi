@@ -65,7 +65,7 @@ void deploy_drone(int darts_per_drone, int shm_id, semaphore_data drone_semaphor
 	if((pid=fork())<0){
 		perror("fork");
 		printf("Fork error, errno %d\n", errno);
-		printf("Drone counter: %d\n", drone_counter);
+		printf("Drones deployed: %d\n", drone_counter);
 		exit(1);
 	}
 	else if(pid==0){
